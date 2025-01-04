@@ -3,7 +3,10 @@
 
 import styles from  './App.module.css'
 import Form from './components/form/Form'
+import useWeather from './hooks/useWeather'
 function App() {
+
+  const {fecthWather} = useWeather()
 
 
   return (
@@ -11,7 +14,7 @@ function App() {
       <h1 className={styles.title}>Hola mundo</h1>
       <div className={styles.container}>
      
-       <Form/>
+       <Form  fecthWather={fecthWather}/>
 
       </div>
     </>
