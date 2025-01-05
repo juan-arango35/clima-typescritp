@@ -1,0 +1,24 @@
+.container {
+  background: var(--white);
+  color: #000;
+  border-radius: 2rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.temp {
+  font-size: 6rem;
+  font-weight: 900;
+}
+.tempInfo {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.info {
+    font-weight: bold;
+}
+.tempNumber {
+    font-weight: 400;
+}
