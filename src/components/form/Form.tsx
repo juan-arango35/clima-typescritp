@@ -6,7 +6,7 @@ import Alert from "../alert/Alert";
 
 
 
-type useWeatherType = {
+export type useWeatherType = {
   fecthWather: (search: SearchType) => Promise<void>
 }
 
