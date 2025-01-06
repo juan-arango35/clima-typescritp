@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SearchType } from "../types";
-import { z } from "zod";
+import {  z } from "zod";
 /*import { useWeatherType } from '../components/form/Form';
  */
 
@@ -16,18 +16,26 @@ export const Weather = z.object({
 }) 
 
  type Weather = z.infer<typeof Weather> 
+
+const intialState = {
+  name: "",
+  main: {
+    temp: 0,
+    temp_min: 0,
+    temp_max: 0,
+  },
+}
+
+
 const useWeather = () => {
-  const [weather, setWeather] = useState<Weather>({
-    name: "",
-    main: {
-      temp: 0,
-      temp_min: 0,
-      temp_max: 0,
-    },
-  })
+  const [weather, setWeather] = useState<Weather>(intialState)
+
+  const [loading, setLoading] = useState(false)
   const fecthWather = async (search: SearchType) => {
    
     const appId = import.meta.env.VITE_API_KEY;
+    setLoading(true)
+    setWeather(intialState)
     try {
       const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${appId}`;
       const result = await fetch(geoUrl);
@@ -46,6 +54,8 @@ const useWeather = () => {
      console.log(name,"temp:", temp,"temp min:", temp_min,"temp max :", temp_max)
     } catch (error) { 
       console.log(error);
+    } finally {
+      setLoading(false)
     }
   };
 
@@ -54,6 +64,7 @@ const useWeather = () => {
   
   return {
     weather, 
+    loading,
     fecthWather
   
 

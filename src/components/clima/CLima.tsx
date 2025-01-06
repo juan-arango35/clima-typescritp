@@ -1,3 +1,4 @@
+
 import styles from "./Clima.module.css";
 
 const CLima = ({
@@ -8,11 +9,14 @@ const CLima = ({
     main: { temp: number; temp_min: number; temp_max: number };
   } | null;
 }) => {
+ 
   if (!weather) {
     return (
       <div>Por favor, ingrese una ciudad y un país para ver el clima.</div>
     ); // Mensaje mientras se cargan los datos
   }
+
+
 
   function truncarADecimal(numero: number) {
     return parseFloat(
