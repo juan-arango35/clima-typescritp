@@ -34,7 +34,7 @@ const useWeather = () => {
     setLoading(true);
     setWeather(intialState);
     try {
-      const geoUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${appId}`;
+      const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${search.city},${search.country}&appid=${appId}`;
       const result = await fetch(geoUrl);
       const data = await result.json();
      
