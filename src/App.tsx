@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <h1 className={styles.title}>Hola mundo</h1>
+      <h1 className={styles.title}>API del Clima</h1>
       <div className={styles.container}>
         <Form fecthWather={fecthWather} />
         {loading && <Spiner/>}
